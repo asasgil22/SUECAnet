@@ -1,39 +1,60 @@
-import { Carta, Naipe } from "../types";
+import { Carta, Trunfo } from "../types";
 
-// A ordem exata de força na Sueca, do mais fraco ao mais forte
-const hierarquia = ["2", "3", "4", "5", "6", "Q", "J", "K", "7", "A"];
+export const NAIPES = ["copas", "espadas", "ouros", "paus"];
+export const VALORES = ["2", "3", "4", "5", "6", "Q", "J", "K", "7", "A"];
+export const PONTOS: Record<string, number> = { A: 11, "7": 10, K: 4, J: 3, Q: 2, "6": 0, "5": 0, "4": 0, "3": 0, "2": 0 };
+export const HIERARQUIA: Record<string, number> = { A: 10, "7": 9, K: 8, J: 7, Q: 6, "6": 5, "5": 4, "4": 3, "3": 2, "2": 1 };
 
-export function calcularVencedorVaza(mesa: Carta[], naipeTrunfo: Naipe): Carta {
-  // A primeira carta jogada define o naipe que deve ser assistido
-  const cartaPuxada = mesa[0];
-  let cartaVencedora = cartaPuxada;
-
-  for (let i = 1; i < mesa.length; i++) {
-    const cartaAtual = mesa[i];
-    
-    const isTrunfoAtual = cartaAtual.naipe === naipeTrunfo;
-    const isTrunfoVencedora = cartaVencedora.naipe === naipeTrunfo;
-    const isMesmoNaipe = cartaAtual.naipe === cartaPuxada.naipe;
-
-    const poderAtual = hierarquia.indexOf(cartaAtual.valor);
-    const poderVencedora = hierarquia.indexOf(cartaVencedora.valor);
-
-    if (isTrunfoAtual && !isTrunfoVencedora) {
-      // Corte: Jogou trunfo sobre um naipe comum
-      cartaVencedora = cartaAtual;
-    } else if (isTrunfoAtual && isTrunfoVencedora) {
-      // Disputa de Trunfos: Vence o trunfo mais alto
-      if (poderAtual > poderVencedora) cartaVencedora = cartaAtual;
-    } else if (isMesmoNaipe && !isTrunfoVencedora) {
-      // Assistiu o naipe: Vence a carta mais alta do naipe original (se não houve corte)
-      if (poderAtual > poderVencedora) cartaVencedora = cartaAtual;
+export function criarBaralho(): Carta[] {
+  let baralho: Carta[] = [];
+  let id = 0;
+  for (let naipe of NAIPES) {
+    for (let valor of VALORES) {
+      baralho.push({
+        id: `c_${id++}`,
+        naipe,
+        valor,
+        ponto: PONTOS[valor],
+        pontos: PONTOS[valor]
+      });
     }
-    // Descartes (naipes diferentes que não são trunfo) perdem automaticamente
   }
-
-  return cartaVencedora;
+  return baralho.sort(() => Math.random() - 0.5);
 }
 
-export function calcularPontos(mesa: Carta[]): number {
-  return mesa.reduce((total, carta) => total + carta.pontos, 0);
+export function decidirJogadaBot(mao: Carta[], mesa: Carta[], trunfo: Trunfo): Carta | null {
+  if (!mao || mao.length === 0) return null;
+  const naipePuxado = mesa.length > 0 ? mesa[0].naipe : null;
+  let validas = mao.filter((c) => c && c.naipe === naipePuxado);
+  if (validas.length === 0) validas = mao.filter(Boolean);
+  if (validas.length === 1) return validas[0];
+
+  if (mesa.length === 0) {
+    let ases = validas.filter((c) => c.valor === "A" && c.naipe !== trunfo.naipe);
+    if (ases.length > 0) return ases[0];
+    let lixo = validas.filter((c) => (c.ponto ?? c.pontos ?? 0) === 0 && c.naipe !== trunfo.naipe);
+    if (lixo.length > 0) return lixo.sort((a, b) => HIERARQUIA[a.valor] - HIERARQUIA[b.valor])[0];
+    return validas.sort((a, b) => HIERARQUIA[a.valor] - HIERARQUIA[b.valor])[0];
+  }
+
+  let pMax = -1; 
+  let indexVencedor = -1;
+  
+  mesa.forEach((c, idx) => {
+    let p = c.naipe === trunfo.naipe ? 1000 + HIERARQUIA[c.valor] : c.naipe === naipePuxado ? 100 + HIERARQUIA[c.valor] : 0;
+    if (p > pMax) { pMax = p; indexVencedor = idx; }
+  });
+
+  if (indexVencedor === mesa.length - 2) {
+    let pts = validas.filter((c) => (c.ponto ?? c.pontos ?? 0) > 0).sort((a, b) => (b.ponto ?? b.pontos ?? 0) - (a.ponto ?? a.pontos ?? 0));
+    if (pts.length > 0) return pts[0];
+    return validas.sort((a, b) => HIERARQUIA[a.valor] - HIERARQUIA[b.valor])[0];
+  } else {
+    let ganham = validas.filter((c) => {
+      let p = c.naipe === trunfo.naipe ? 1000 + HIERARQUIA[c.valor] : c.naipe === naipePuxado ? 100 + HIERARQUIA[c.valor] : 0;
+      return p > pMax;
+    });
+    if (ganham.length > 0) return ganham.sort((a, b) => HIERARQUIA[a.valor] - HIERARQUIA[b.valor])[0];
+    return validas.sort((a, b) => HIERARQUIA[a.valor] - HIERARQUIA[b.valor])[0];
+  }
 }
