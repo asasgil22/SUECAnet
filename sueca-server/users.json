@@ -1,0 +1,28 @@
+[
+  {
+    "id": "1788227353295",
+    "nome": "Sergio Gil",
+    "cpf": "108.712.357-73",
+    "dataNascimento": "08/05/1986",
+    "email": "sergil@sapo.pt",
+    "usuario": "asasgil",
+    "senha": "asas18",
+    "status": "ativo",
+    "criadoEm": "2026-09-01T01:49:13.295Z",
+    "moedas": 325,
+    "ultimoBonusDiario": 1788283624977
+  },
+  {
+    "id": "1788237853444",
+    "nome": "gil",
+    "cpf": "171.385.130-03",
+    "dataNascimento": "09/04/1988",
+    "email": "asasgil@gmail.com",
+    "usuario": "asasgil2",
+    "senha": "asas18",
+    "status": "ativo",
+    "criadoEm": "2026-09-01T04:44:13.445Z",
+    "moedas": 25,
+    "ultimoBonusDiario": 1788287489116
+  }
+]

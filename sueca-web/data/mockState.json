@@ -1,0 +1,23 @@
+{
+  "estadoPartida": "em_andamento",
+  "rodadaAtual": 1,
+  "trunfo": { 
+    "naipe": "copas", 
+    "valor": "7"
+  },
+  "mesa": [],
+  "jogadorAtual": {
+    "id": "p1",
+    "nome": "Você",
+    "mao": [
+      { "id": "c1", "naipe": "copas", "valor": "A", "pontos": 11, "jogavel": true },
+      { "id": "c2", "naipe": "espadas", "valor": "K", "pontos": 4, "jogavel": true },
+      { "id": "c3", "naipe": "ouros", "valor": "3", "pontos": 0, "jogavel": true }
+    ]
+  },
+  "oponentes": [
+    { "id": "p2", "posicao": "esquerda", "cartasRestantes": 10 },
+    { "id": "p3", "posicao": "frente", "cartasRestantes": 10 },
+    { "id": "p4", "posicao": "direita", "cartasRestantes": 10 }
+  ]
+}

@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+/* Classes Utilitárias Customizadas Globais */
+.text-glow {
+  text-shadow: 0 0 10px rgba(234, 179, 8, 0.5);
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(10px) scale(0.95); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1); 
+  }
+}
+
+/* Oculta a barra de rolagem para um visual mais limpo (opcional) */
+::-webkit-scrollbar {
+  display: none;
+}
