@@ -36,6 +36,34 @@ const BARALHOS: TemaBaralho[] = [
   { id: "br-cru", nome: "Cruzeiro", tipo: "Brasil", cor: "bg-blue-800", destaque: "text-blue-400", escudo: "/escudos/cruzeiro.6c188ab8.png", sigla: "CEC" },
   { id: "br-gre", nome: "Grêmio", tipo: "Brasil", cor: "bg-[repeating-linear-gradient(90deg,#1d4ed8_0px,#1d4ed8_15px,#111_15px,#111_30px,#fff_30px,#fff_35px)]", destaque: "text-blue-500", escudo: "/escudos/gremio.d252cec9.png", sigla: "FBPA" },
   { id: "br-sci", nome: "Internacional", tipo: "Brasil", cor: "bg-[repeating-linear-gradient(0deg,#dc2626_0px,#dc2626_20px,#fff_20px,#fff_40px)]", destaque: "text-red-500", escudo: "/escudos/internacional.82f72a2f.png", sigla: "SCI" },
+  { id: "br-cap", nome: "Athletico-PR", tipo: "Brasil", cor: "bg-white", destaque: "text-red-600", escudo: "/escudos/athletico-paranaense.15469cc7.png", sigla: "CAP" },
+  { id: "br-bah", nome: "Bahia", tipo: "Brasil", cor: "bg-[repeating-linear-gradient(90deg,#1d4ed8_0px,#1d4ed8_15px,#fff_15px,#fff_30px,#dc2626_30px,#dc2626_45px)]", destaque: "text-blue-500", escudo: "/escudos/bahia.ac6d69f5.png", sigla: "ECB" },
+  { id: "br-vit", nome: "Vitória", tipo: "Brasil", cor: "bg-[repeating-linear-gradient(90deg,#b91c1c_0px,#b91c1c_20px,#111_20px,#111_40px)]", destaque: "text-red-500", escudo: "/escudos/vitoria.227522d4.png", sigla: "ECV" },
+  { id: "br-fec", nome: "Fortaleza", tipo: "Brasil", cor: "bg-[repeating-linear-gradient(90deg,#1d4ed8_0px,#1d4ed8_15px,#fff_15px,#fff_30px,#dc2626_30px,#dc2626_45px)]", destaque: "text-blue-500", escudo: "/escudos/fortaleza.5f34e5ff.png", sigla: "FEC" },
+  { id: "br-csc", nome: "Ceará", tipo: "Brasil", cor: "bg-[repeating-linear-gradient(90deg,#111_0px,#111_20px,#fff_20px,#fff_40px)]", destaque: "text-gray-400", escudo: "/escudos/ceara.ea9d0cdd.png", sigla: "CSC" },
+  { id: "br-juv", nome: "Juventude", tipo: "Brasil", cor: "bg-[repeating-linear-gradient(90deg,#15803d_0px,#15803d_20px,#fff_20px,#fff_40px)]", destaque: "text-green-500", escudo: "/escudos/juventude.fe8abf7c.png", sigla: "ECJ" },
+  { id: "br-cri", nome: "Criciúma", tipo: "Brasil", cor: "bg-[repeating-linear-gradient(90deg,#eab308_0px,#eab308_15px,#111_15px,#111_30px,#fff_30px,#fff_45px)]", destaque: "text-yellow-500", escudo: "/escudos/criciuma.d06aa52e.png", sigla: "CRI" },
+  { id: "br-ago", nome: "Atlético-GO", tipo: "Brasil", cor: "bg-[repeating-linear-gradient(90deg,#b91c1c_0px,#b91c1c_20px,#111_20px,#111_40px)]", destaque: "text-red-500", escudo: "/escudos/atletico-goianiense.4eadd950.png", sigla: "ACG" },
+  { id: "br-spo-b", nome: "Sport Recife", tipo: "Série B", cor: "bg-[repeating-linear-gradient(90deg,#b91c1c_0px,#b91c1c_20px,#111_20px,#111_40px)]", destaque: "text-red-600", escudo: "/escudos/sport-recife.42103cc4.png", sigla: "SCR" },
+  { id: "br-goi", nome: "Goiás", tipo: "Série B", cor: "bg-green-700", destaque: "text-white", escudo: "/escudos/goias.e5a0bc09.png", sigla: "GEC" },
+  { id: "br-cfc", nome: "Coritiba", tipo: "Série B", cor: "bg-[repeating-linear-gradient(90deg,#166534_0px,#166534_20px,#fff_20px,#fff_40px)]", destaque: "text-green-500", escudo: "/escudos/coritiba.6d282e13.png", sigla: "CFC" },
+  { id: "br-ame", nome: "América-MG", tipo: "Série B", cor: "bg-[repeating-linear-gradient(90deg,#15803d_0px,#15803d_20px,#111_20px,#111_40px)]", destaque: "text-green-500", escudo: "/escudos/america-mineiro.c851fba8.png", sigla: "AFC" },
+  { id: "br-crb", nome: "CRB", tipo: "Série B", cor: "bg-[repeating-linear-gradient(90deg,#b91c1c_0px,#b91c1c_20px,#fff_20px,#fff_40px)]", destaque: "text-red-600", escudo: "/escudos/crb.f44e564b.png", sigla: "CRB" },
+  { id: "br-ava", nome: "Avaí", tipo: "Série B", cor: "bg-[repeating-linear-gradient(90deg,#1e3a8a_0px,#1e3a8a_20px,#fff_20px,#fff_40px)]", destaque: "text-blue-500", escudo: "/escudos/avai.cdb69a77.png", sigla: "AFC" },
+  { id: "br-ope", nome: "Operário-PR", tipo: "Série B", cor: "bg-[repeating-linear-gradient(90deg,#111_0px,#111_20px,#fff_20px,#fff_40px)]", destaque: "text-gray-400", escudo: "/escudos/operario-ferroviario.9fc8aa8a.png", sigla: "OFEC" },
+  { id: "br-mir", nome: "Mirassol", tipo: "Série B", cor: "bg-yellow-500", destaque: "text-green-800", escudo: "/escudos/mirassol.3da1a222.png", sigla: "MFC" },
+  { id: "br-nov", nome: "Novorizontino", tipo: "Série B", cor: "bg-[repeating-linear-gradient(90deg,#eab308_0px,#eab308_20px,#111_20px,#111_40px)]", destaque: "text-yellow-500", escudo: "/escudos/novorizontino.689cca10.png", sigla: "GFN" },
+  { id: "br-vil", nome: "Vila Nova", tipo: "Série B", cor: "bg-red-600", destaque: "text-white", escudo: "/escudos/vila-nova.cbb31747.png", sigla: "VNFC" },
+  { id: "br-cha", nome: "Chapecoense", tipo: "Série B", cor: "bg-green-600", destaque: "text-white", escudo: "/escudos/chapecoense.7256ba28.png", sigla: "ACF" },
+  { id: "br-pon", nome: "Ponte Preta", tipo: "Série B", cor: "bg-[linear-gradient(135deg,#fff_40%,#111_40%,#111_60%,#fff_60%)]", destaque: "text-gray-400", escudo: "/escudos/ponte-preta.211c18b1.png", sigla: "AAPP" },
+  { id: "br-gua", nome: "Guarani", tipo: "Série B", cor: "bg-green-600", destaque: "text-white", escudo: "/escudos/guarani.88642ff3.png", sigla: "GFC" },
+  { id: "br-pay", nome: "Paysandu", tipo: "Série B", cor: "bg-[repeating-linear-gradient(90deg,#3b82f6_0px,#3b82f6_20px,#fff_20px,#fff_40px)]", destaque: "text-blue-400", escudo: "/escudos/paysandu.d4c75168.png", sigla: "PSC" },
+  { id: "br-ama", nome: "Amazonas", tipo: "Série B", cor: "bg-yellow-500", destaque: "text-black", escudo: "/escudos/amazonas.c47d0b8c.png", sigla: "AMZ" },
+  { id: "br-itu", nome: "Ituano", tipo: "Série B", cor: "bg-[repeating-linear-gradient(90deg,#b91c1c_0px,#b91c1c_20px,#111_20px,#111_40px)]", destaque: "text-red-500", escudo: "/escudos/ituano.8c844d7e.png", sigla: "IFC" },
+  { id: "br-bsp", nome: "Botafogo-SP", tipo: "Série B", cor: "bg-[repeating-linear-gradient(90deg,#b91c1c_0px,#b91c1c_15px,#fff_15px,#fff_30px,#111_30px,#111_45px)]", destaque: "text-red-600", escudo: "/escudos/botafogo-sp.50f2da52.png", sigla: "BFC" },
+  { id: "br-bru", nome: "Brusque", tipo: "Série B", cor: "bg-[repeating-linear-gradient(90deg,#b91c1c_0px,#b91c1c_15px,#eab308_15px,#eab308_30px,#15803d_30px,#15803d_45px)]", destaque: "text-yellow-500", escudo: "/escudos/brusque.1c6f9af9.png", sigla: "BFC" },
+  { id: "br-tom", nome: "Tombense", tipo: "Série B", cor: "bg-red-600", destaque: "text-white", escudo: "/escudos/tombense.daebec7f.png", sigla: "TFC" },
+  { id: "br-nau", nome: "Náutico", tipo: "Série B", cor: "bg-[repeating-linear-gradient(0deg,#dc2626_0px,#dc2626_20px,#fff_20px,#fff_40px)]", destaque: "text-red-500", escudo: "/escudos/nautico.c4fb9d71.png", sigla: "CNC" },
 ];
 
 const CATEGORIAS_SALAS = [
@@ -156,7 +184,6 @@ export default function Home() {
 
   return (
     <div className="min-h-[100dvh] w-full bg-[#050a07] text-white flex flex-col relative overflow-x-hidden overflow-y-auto font-sans">
-      {/* Background elements (Fixed so they don't break scroll) */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-600/10 blur-[150px] rounded-full pointer-events-none"></div>
 
@@ -239,7 +266,6 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col lg:flex-row items-center sm:items-start justify-between gap-10 lg:gap-16 w-full">
-                {/* Coluna Esquerda: Salas */}
                 <div className="flex-1 flex flex-col items-center lg:items-start w-full text-center lg:text-left">
                   <div className="mb-2">
                     <p className="text-emerald-400 text-[9px] sm:text-xs font-bold tracking-[0.3em] sm:tracking-[0.4em] uppercase drop-shadow-[0_0_10px_rgba(52,211,153,0.4)] animate-pulse">♠️ A mesa está pronta ♠️</p>
@@ -267,7 +293,6 @@ export default function Home() {
                   </button>
                 </div>
 
-                {/* Coluna Direita: Baralho */}
                 <div className="w-full sm:w-[350px] lg:w-[400px] flex flex-col items-center mt-6 lg:mt-0 px-2 sm:px-0">
                   <div className="bg-gradient-to-br from-[#0b1510]/90 to-black/80 backdrop-blur-2xl border border-emerald-500/20 p-6 sm:p-8 rounded-[2rem] sm:rounded-[2.5rem] w-full flex flex-col items-center shadow-xl">
                     <div className="mb-4 sm:mb-8 text-center">
