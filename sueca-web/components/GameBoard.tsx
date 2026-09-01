@@ -295,13 +295,17 @@ export default function GameBoard({ salaId, tema, nomeJogador, userId, buyIn }: 
   const infoFrente = infoJogadores[idFrente] || { nome: "Aguardando...", isBot: true, cartas: 10, moedas: 0 };
   const infoDireita = infoJogadores[idDireita] || { nome: "Aguardando...", isBot: true, cartas: 10, moedas: 0 };
 
+  const temaEsquerdaObj = temasJogadores[idEsquerda] || tema;
+  const temaFrenteObj = temasJogadores[idFrente] || tema;
+  const temaDireitaObj = temasJogadores[idDireita] || tema;
+
   const circumference = 2 * Math.PI * 70;
 
   return (
     <div className="w-full h-full flex flex-col justify-between relative p-2 sm:p-6 pt-8 sm:pt-4 select-none font-sans overflow-hidden transition-colors duration-1000" style={{ backgroundColor: luzAmbiente }}>
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none"></div>
 
-      {/* Caixa de Emojis Remanejada para o TOPO DIREITO (Não atrapalha o "Sua Vez") e com scale reduzido no Mobile */}
+      {/* Caixa de Emojis Remanejada para o TOPO DIREITO */}
       <div className="absolute top-24 sm:top-auto sm:bottom-6 right-2 sm:right-6 z-[80] flex flex-col gap-2 scale-[0.85] sm:scale-100 origin-top-right sm:origin-bottom-right">
         <AnimatePresence>
           {emojisMensagens.filter((msg) => msg.jogadorId === meuId).map((msg) => (
