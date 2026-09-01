@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import GameBoard from "../components/GameBoard";
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
+
 export type TemaBaralho = {
   id: string;
   nome: string;
@@ -122,7 +124,7 @@ export default function Home() {
 
     const endpoint = isLogin ? "/api/login" : "/api/register";
     try {
-      const res = await fetch(`http://localhost:3001${endpoint}`, {
+      const res = await fetch(`${API_URL}${endpoint}`, {
         method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(form),
       });
       const data = await res.json();
@@ -135,13 +137,13 @@ export default function Home() {
         setBonusAlerta(true);
         setTimeout(() => setBonusAlerta(false), 5000);
       }
-    } catch (err: any) { setErroAuth(err.message); }
+    } catch (err: any) { setErroAuth(err.message || "Erro de conexão com o servidor."); }
     setLoading(false);
   };
 
   const resgatarEmergencia = async () => {
     try {
-      const res = await fetch(`http://localhost:3001/api/resgate`, {
+      const res = await fetch(`${API_URL}/api/resgate`, {
         method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ userId: usuarioLogado?.id })
       });
       const data = await res.json();
@@ -259,7 +261,7 @@ export default function Home() {
               <div className="px-4 py-2 bg-linear-to-r from-emerald-500/10 to-blue-500/10 border border-emerald-500/30 rounded-full backdrop-blur-sm group-hover:shadow-lg group-hover:shadow-emerald-500/20 transition-all duration-300">
                 <span className="text-white/60 text-sm font-medium">👤 Logado como <strong className="text-emerald-300 drop-shadow-[0_0_8px_rgba(52,211,153,0.4)]">{usuarioLogado.nome.split(" ")[0]}</strong></span>
               </div>
-              <button onClick={logout} className="text-white/30 hover:text-rose-300 text-xs font-bold uppercase tracking-widest transition-all duration-200 border border-white/10 px-4 py-1.5 rounded-full hover:bg-rose-500/10 hover:border-rose-500/30 hover:shadow-lg hover:shadow-rose-500/10 active:scale-95">🚺 Sair</button>
+              <button onClick={logout} className="text-white/30 hover:text-rose-300 text-xs font-bold uppercase tracking-widest transition-all duration-200 border border-white/10 px-4 py-1.5 rounded-full hover:bg-rose-500/10 hover:border-rose-500/30 hover:shadow-lg hover:shadow-rose-500/10 active:scale-95">🚪 Sair</button>
             </div>
 
             <div className="flex-1 flex flex-col items-start w-full group/main">
